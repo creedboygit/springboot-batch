@@ -1,5 +1,6 @@
 package com.valletta.pass;
 
+import lombok.NonNull;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.StepContribution;
@@ -37,7 +38,7 @@ public class SpringbootBatchApplication {
 		return this.stepBuilderFactory.get("passStep")
 			.tasklet(new Tasklet() {
 				@Override
-				public RepeatStatus execute(StepContribution stepContribution, ChunkContext chunkContext) throws Exception {
+				public RepeatStatus execute(@NonNull StepContribution stepContribution, @NonNull ChunkContext chunkContext) throws Exception {
 					System.out.println("Execute PassStep");
 					return RepeatStatus.FINISHED;
 				}
