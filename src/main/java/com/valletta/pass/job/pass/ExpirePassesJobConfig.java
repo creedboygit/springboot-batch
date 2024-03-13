@@ -32,14 +32,14 @@ public class ExpirePassesJobConfig {
 
     @Bean
     public Job expirePassesJob() {
-        return this.jobBuilderFactory.get("expirePassJob")
+        return this.jobBuilderFactory.get("expirePassesJob")
             .start(expirePassesStep())
             .build();
     }
 
     @Bean
     public Step expirePassesStep() {
-        return this.stepBuilderFactory.get("expirePassStep")
+        return this.stepBuilderFactory.get("expirePassesStep")
             .<PassEntity, PassEntity>chunk(CHUNK_SIZE)
             .reader(expirePassesItemReader())
             .processor(expirePassesItemProcessor())
