@@ -12,7 +12,6 @@ import org.springframework.batch.core.configuration.annotation.JobBuilderFactory
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepScope;
 import org.springframework.batch.item.ItemProcessor;
-import org.springframework.batch.item.ItemWriter;
 import org.springframework.batch.item.database.JpaCursorItemReader;
 import org.springframework.batch.item.database.JpaItemWriter;
 import org.springframework.batch.item.database.builder.JpaCursorItemReaderBuilder;
@@ -32,14 +31,14 @@ public class ExpirePassesJobConfig {
     private final EntityManagerFactory entityManagerFactory;
 
     @Bean
-    public Job expirePassJob() {
+    public Job expirePassesJob() {
         return this.jobBuilderFactory.get("expirePassJob")
-            .start(expirePassStep())
+            .start(expirePassesStep())
             .build();
     }
 
     @Bean
-    public Step expirePassStep() {
+    public Step expirePassesStep() {
         return this.stepBuilderFactory.get("expirePassStep")
             .<PassEntity, PassEntity>chunk(CHUNK_SIZE)
             .reader(expirePassesItemReader())
