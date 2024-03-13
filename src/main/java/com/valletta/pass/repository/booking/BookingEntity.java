@@ -1,12 +1,18 @@
 package com.valletta.pass.repository.booking;
 
 import com.valletta.pass.repository.BaseEntity;
+import com.valletta.pass.repository.pass.PassEntity;
+import com.valletta.pass.repository.user.UserEntity;
+import java.time.LocalDateTime;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -27,5 +33,24 @@ public class BookingEntity extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
     private BookingStatus status;
+    private boolean usedPass;
+    private boolean attended;
+
+    private LocalDateTime startedAt;
+    private LocalDateTime endedAt;
+    private LocalDateTime canceledAt;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "userId", insertable = false, updatable = false)
+    private UserEntity userEntity;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "passSeq", insertable = false, updatable = false)
+    private PassEntity passEntity;
+
+    // endedAt 기준, yyyy-MM-HH 00:00:00
+    public LocalDateTime getStatisticsAt() {
+        return this.endedAt.withHour(0).withMinute(0).withSecond(0).withNano(0);
+    }
 
 }
