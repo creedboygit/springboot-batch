@@ -17,6 +17,7 @@ import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.ToString.Exclude;
 
 @Getter
 @Setter
@@ -42,10 +43,12 @@ public class BookingEntity extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userId", insertable = false, updatable = false)
+    @Exclude
     private UserEntity userEntity;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "passSeq", insertable = false, updatable = false)
+    @Exclude
     private PassEntity passEntity;
 
     // endedAt 기준, yyyy-MM-HH 00:00:00
