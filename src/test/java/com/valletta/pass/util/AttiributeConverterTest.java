@@ -40,7 +40,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class AttiributeConverterTest {
 
-
     @PersistenceContext
     private EntityManager em;
 
