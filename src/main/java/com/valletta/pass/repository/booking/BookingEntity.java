@@ -4,6 +4,7 @@ import com.valletta.pass.repository.BaseEntity;
 import com.valletta.pass.repository.pass.PassEntity;
 import com.valletta.pass.repository.user.UserEntity;
 import java.time.LocalDateTime;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -28,17 +29,30 @@ public class BookingEntity extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "booking_seq")
     private Integer bookingSeq;
+
+    @Column(name = "pass_seq")
     private Integer passSeq;
+
+    @Column(name = "user_id")
     private String userId;
 
     @Enumerated(EnumType.STRING)
     private BookingStatus status;
+
+    @Column(name = "user_pass")
     private boolean usedPass;
+
     private boolean attended;
 
+    @Column(name = "started_at")
     private LocalDateTime startedAt;
+
+    @Column(name = "ended_at")
     private LocalDateTime endedAt;
+
+    @Column(name = "canceled_at")
     private LocalDateTime canceledAt;
 
     @ManyToOne(fetch = FetchType.LAZY)

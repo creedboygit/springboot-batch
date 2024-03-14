@@ -2,6 +2,7 @@ package com.valletta.pass.repository.user;
 
 import com.vladmihalcea.hibernate.type.json.JsonStringType;
 import java.util.Map;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -22,8 +23,10 @@ import org.hibernate.annotations.TypeDef;
 public class UserEntity {
 
     @Id
+    @Column(name = "user_id")
     private String userId;
 
+    @Column(name = "user_name")
     private String userName;
 
     @Enumerated(EnumType.STRING)

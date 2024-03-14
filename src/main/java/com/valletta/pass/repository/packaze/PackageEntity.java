@@ -1,6 +1,7 @@
 package com.valletta.pass.repository.packaze;
 
 import com.valletta.pass.repository.BaseEntity;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,9 +20,12 @@ public class PackageEntity extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "package_seq")
     private Integer packageSeq;
 
+    @Column(name = "package_name")
     private String packageName;
+
     private Integer count;
     private Integer period;
 }
