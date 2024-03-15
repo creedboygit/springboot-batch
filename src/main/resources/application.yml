@@ -21,6 +21,17 @@ spring:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
 #        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
 
+logging:
+  level:
+    p6spy: debug
+
+decorator:
+  datasource:
+    p6spy:
+      enable-logging: true
+      multiline: false
+      logging: slf4j
+
 kakaotalk:
   host: https://kapi.kakao.com
   token: YOUR_ACCESS_TOKEN
