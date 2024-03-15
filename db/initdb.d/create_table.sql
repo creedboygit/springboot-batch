@@ -54,7 +54,7 @@ CREATE TABLE `booking`
     `attended`     tinyint(1) NOT NULL DEFAULT '0' COMMENT '출석 여부',
     `started_at`   timestamp   NOT NULL COMMENT '시작 일시',
     `ended_at`     timestamp   NOT NULL COMMENT '종료 일시',
-    `cancelled_at` timestamp            DEFAULT NULL COMMENT '취소 일시',
+    `canceled_at` timestamp            DEFAULT NULL COMMENT '취소 일시',
     `created_at`   timestamp   NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '생성 일시',
     `modified_at`  timestamp            DEFAULT NULL COMMENT '수정 일시',
     PRIMARY KEY (`booking_seq`)
@@ -102,7 +102,7 @@ CREATE TABLE `statistics`
     `statistics_at`       timestamp NOT NULL COMMENT '통계 일시',
     `all_count`           int       NOT NULL DEFAULT 0 COMMENT '전체 횟수',
     `attended_count`      int       NOT NULL DEFAULT 0 COMMENT '출석 횟수',
-    `cancelled_count`     int       NOT NULL DEFAULT 0 COMMENT '취소 횟수',
+    `canceled_count`     int       NOT NULL DEFAULT 0 COMMENT '취소 횟수',
     PRIMARY KEY (`statistics_seq`),
     INDEX idx_statistics_at (`statistics_at`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='통계';

@@ -27,7 +27,7 @@ public class StatisticsEntity {
 
     private int allCount;
     private int attendedCount;
-    private int cancelledCount;
+    private int canceledCount;
 
     public static StatisticsEntity create(final BookingEntity bookingEntity) {
         StatisticsEntity statisticsEntity = new StatisticsEntity();
@@ -39,7 +39,7 @@ public class StatisticsEntity {
         }
 
         if (BookingStatus.CANCELED.equals(bookingEntity.getStatus())) {
-            statisticsEntity.setCancelledCount(1);
+            statisticsEntity.setCanceledCount(1);
         }
 
         return statisticsEntity;
@@ -53,7 +53,7 @@ public class StatisticsEntity {
         }
 
         if (BookingStatus.CANCELED.equals(bookingEntity.getStatus())) {
-            this.cancelledCount++;
+            this.canceledCount++;
         }
     }
 }

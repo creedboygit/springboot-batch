@@ -41,7 +41,7 @@ public class BookingEntity extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private BookingStatus status;
 
-    @Column(name = "user_pass")
+    @Column(name = "used_pass")
     private boolean usedPass;
 
     private boolean attended;
@@ -56,12 +56,14 @@ public class BookingEntity extends BaseEntity {
     private LocalDateTime canceledAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "userId", insertable = false, updatable = false)
+//    @JoinColumn(name = "userId", insertable = false, updatable = false)
+    @JoinColumn(name = "user_id", insertable = false, updatable = false)
     @Exclude
     private UserEntity userEntity;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "passSeq", insertable = false, updatable = false)
+//    @JoinColumn(name = "passSeq", insertable = false, updatable = false)
+    @JoinColumn(name = "pass_seq", insertable = false, updatable = false)
     @Exclude
     private PassEntity passEntity;
 
