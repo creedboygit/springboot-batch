@@ -11,6 +11,7 @@ import com.valletta.pass.repository.user.UserGroupMappingRepository;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.StepContribution;
@@ -29,7 +30,7 @@ public class AddPassesTasklet implements Tasklet {
     private final UserGroupMappingRepository userGroupMappingRepository;
 
     @Override
-    public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) {
+    public RepeatStatus execute(@NonNull StepContribution contribution, @NonNull ChunkContext chunkContext) {
         // 이용권 시작 일시 1일 전 user group 내 각 사용자에게 이용권을 추가해 줍니다.
         final LocalDateTime startedAt = LocalDateTime.now().minusDays(1);
         final List<BulkPassEntity> bulkPassEntities = bulkPassRepository.findByStatusAndStartedAtGreaterThan(BulkPassStatus.READY, startedAt);
@@ -37,7 +38,7 @@ public class AddPassesTasklet implements Tasklet {
         int count = 0;
         for (BulkPassEntity bulkPassEntity : bulkPassEntities) {
             // user group에 속한 userId들을 조회합니다.
-            List<String> userIds = userGroupMappingRepository.findByUserGrouId(bulkPassEntity.getUserGroupId())
+            List<String> userIds = userGroupMappingRepository.findByUserGroupId(bulkPassEntity.getUserGroupId())
                 .stream().map(UserGroupMappingEntity::getUserId).toList();
 
             // 각 userId로 이용권을 추가합니다.
