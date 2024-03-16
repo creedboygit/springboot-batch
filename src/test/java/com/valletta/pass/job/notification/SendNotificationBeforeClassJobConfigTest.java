@@ -78,5 +78,13 @@ public class SendNotificationBeforeClassJobConfigTest {
         passEntity.setStartedAt(now.minusDays(60));
         passEntity.setEndedAt(now.minusDays(1));
         passRepository.save(passEntity);
+
+        BookingEntity bookingEntity = new BookingEntity();
+        bookingEntity.setPassSeq(passEntity.getPassSeq());
+        bookingEntity.setUserId(userId);
+        bookingEntity.setStatus(BookingStatus.READY);
+        bookingEntity.setStartedAt(now.plusMinutes(10));
+        bookingEntity.setEndedAt(bookingEntity.getStartedAt().plusMinutes(50));
+        bookingRepository.save(bookingEntity);
     }
 }
