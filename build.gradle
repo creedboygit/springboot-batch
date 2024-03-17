@@ -15,6 +15,7 @@ repositories {
 dependencies { // 2.4.0+
 	implementation 'org.springframework.boot:spring-boot-starter-batch'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa' // JPA
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.batch:spring-batch-integration' // AsyncItemProcessor, AsyncItemWriter
 	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.8.1'
 	implementation 'org.springframework.boot:spring-boot-starter-webflux' // WebClient
@@ -46,9 +47,7 @@ dependencies { // 2.4.0+
 	testImplementation 'org.springframework.batch:spring-batch-test'
 	testCompileOnly 'org.projectlombok:lombok'
 	testAnnotationProcessor 'org.projectlombok:lombok'
-	// https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
 	testImplementation 'org.apache.commons:commons-lang3:3.12.0'
-
 }
 
 tasks.named('test') {
