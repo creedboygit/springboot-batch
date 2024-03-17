@@ -1,5 +1,7 @@
 package com.valletta.pass.repository.pass;
 
+import com.valletta.pass.service.pass.Pass;
+import java.util.List;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
@@ -22,4 +24,9 @@ public interface PassModelMapper {
     default PassStatus status(BulkPassStatus status) {
         return PassStatus.READY;
     }
+
+    @Mapping(target = "packageName", source = "packageEntity.packageName")
+    Pass map(PassEntity passEntity);
+
+    List<Pass> map(List<PassEntity> passEntities);
 }

@@ -1,14 +1,18 @@
 package com.valletta.pass.repository.pass;
 
 import com.valletta.pass.repository.BaseEntity;
+import com.valletta.pass.repository.packaze.PackageEntity;
 import java.time.LocalDateTime;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -45,5 +49,10 @@ public class PassEntity extends BaseEntity {
 
     @Column(name = "expired_at")
     private LocalDateTime expiredAt;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "packageSeq", insertable = false, updatable = false)
+    @JoinColumn(name = "package_seq", insertable = false, updatable = false)
+    private PackageEntity packageEntity;
 
 }
