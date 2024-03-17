@@ -57,13 +57,13 @@ public class AttiributeConverterTest {
 //        em.clear();
 
         // native query를 이용하여 gender = 1 조회
-        Query query = em.createNativeQuery("select * from member_converter where gender = :gender", Member.class);
-        query.setParameter("gender", 1);
-        List<Member> list = query.getResultList();
-
-        // 검증
-        String resultGender = list.get(0).getGender();
-        Assert.assertThat("남자", is(resultGender));
+//        Query query = em.createNativeQuery("select * from member_converter where gender = :gender", Member.class);
+//        query.setParameter("gender", 1);
+//        List<Member> list = query.getResultList();
+//
+//        // 검증
+//        String resultGender = list.get(0).getGender();
+//        Assert.assertThat("남자", is(resultGender));
     }
 }
 

@@ -20,6 +20,8 @@ spring:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
 #        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+  thymeleaf:
+    cache: false
 
 logging:
   level:
@@ -35,3 +37,4 @@ decorator:
 kakaotalk:
   host: https://kapi.kakao.com
   token: YOUR_ACCESS_TOKEN
+
