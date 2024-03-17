@@ -22,35 +22,35 @@ import org.springframework.transaction.PlatformTransactionManager;
 @SpringBootApplication
 public class SpringbootBatchApplication {
 
-	@Autowired
-	private JobBuilderFactory jobBuilderFactory;
-
-	@Autowired
-	private StepBuilderFactory stepBuilderFactory;
-
-	public SpringbootBatchApplication(JobBuilderFactory jobBuilderFactory, StepBuilderFactory stepBuilderFactory) {
-		this.jobBuilderFactory = jobBuilderFactory;
-		this.stepBuilderFactory = stepBuilderFactory;
-	}
-	
-	@Bean
-	public Step passStep() {
-		return this.stepBuilderFactory.get("passStep")
-			.tasklet(new Tasklet() {
-				@Override
-				public RepeatStatus execute(@NonNull StepContribution stepContribution, @NonNull ChunkContext chunkContext) throws Exception {
-					System.out.println("Execute PassStep");
-					return RepeatStatus.FINISHED;
-				}
-			}).build();
-	}
-
-	@Bean
-	public Job passJob() {
-		return this.jobBuilderFactory.get("passJob")
-			.start(passStep())
-			.build();
-	}
+//	@Autowired
+//	private JobBuilderFactory jobBuilderFactory;
+//
+//	@Autowired
+//	private StepBuilderFactory stepBuilderFactory;
+//
+//	public SpringbootBatchApplication(JobBuilderFactory jobBuilderFactory, StepBuilderFactory stepBuilderFactory) {
+//		this.jobBuilderFactory = jobBuilderFactory;
+//		this.stepBuilderFactory = stepBuilderFactory;
+//	}
+//
+//	@Bean
+//	public Step passStep() {
+//		return this.stepBuilderFactory.get("passStep")
+//			.tasklet(new Tasklet() {
+//				@Override
+//				public RepeatStatus execute(@NonNull StepContribution stepContribution, @NonNull ChunkContext chunkContext) throws Exception {
+//					System.out.println("Execute PassStep");
+//					return RepeatStatus.FINISHED;
+//				}
+//			}).build();
+//	}
+//
+//	@Bean
+//	public Job passJob() {
+//		return this.jobBuilderFactory.get("passJob")
+//			.start(passStep())
+//			.build();
+//	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootBatchApplication.class, args);
