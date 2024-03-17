@@ -58,13 +58,13 @@ public class BookingEntity extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "userId", insertable = false, updatable = false)
     @JoinColumn(name = "user_id", insertable = false, updatable = false)
-    @Exclude
+//    @Exclude
     private UserEntity userEntity;
 
     @ManyToOne(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "passSeq", insertable = false, updatable = false)
     @JoinColumn(name = "pass_seq", insertable = false, updatable = false)
-    @Exclude
+//    @Exclude
     private PassEntity passEntity;
 
     // endedAt 기준, yyyy-MM-HH 00:00:00
