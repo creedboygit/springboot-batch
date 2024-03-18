@@ -4,6 +4,7 @@ import com.valletta.pass.repository.booking.BookingEntity;
 import com.valletta.pass.repository.booking.BookingStatus;
 import java.awt.print.Book;
 import java.time.LocalDateTime;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,11 +23,19 @@ public class StatisticsEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "statistics_seq")
     private Integer statisticsSeq;
+
+    @Column(name = "statistics_at")
     private LocalDateTime statisticsAt; // 일 단위
 
+    @Column(name = "all_count")
     private int allCount;
+
+    @Column(name = "attended_count")
     private int attendedCount;
+
+    @Column(name = "canceled_count")
     private int canceledCount;
 
     public static StatisticsEntity create(final BookingEntity bookingEntity) {
