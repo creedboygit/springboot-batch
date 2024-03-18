@@ -1,6 +1,6 @@
 plugins {
-	id 'org.springframework.boot' version '2.7.3'
-	id 'io.spring.dependency-management' version '1.0.13.RELEASE'
+	id 'org.springframework.boot' version '2.7.4'
+	id 'io.spring.dependency-management' version '1.0.14.RELEASE'
 	id 'java'
 }
 
@@ -38,6 +38,12 @@ dependencies { // 2.4.0+
 
 	// csv
 	implementation 'com.opencsv:opencsv:5.7.0'
+
+	// common-lang3
+	implementation 'org.apache.commons:commons-lang3:3.12.0'
+
+	// mysql
+	runtimeOnly 'mysql:mysql-connector-java'
 
 	testImplementation "org.testcontainers:testcontainers:1.17.6"
 	implementation platform('org.testcontainers:testcontainers-bom:1.17.6')

@@ -1,4 +1,4 @@
-package com.valletta.pass.controller;
+package com.valletta.pass.controller.pass;
 
 import com.valletta.pass.service.pass.Pass;
 import com.valletta.pass.service.pass.PassService;
