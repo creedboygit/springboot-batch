@@ -12,7 +12,7 @@ public class BulkPassService {
 
     private final BulkPassRepository bulkPassRepository;
 
-    public Object getAllBulkPasses() {
+    public List<BulkPass> getAllBulkPasses() {
         List<BulkPassEntity> bulkPassEntities = bulkPassRepository.findAllOrderByStartedAtDesc();
         return BulkPassModelMapper.INSTANCE.map(bulkPassEntities);
     }
