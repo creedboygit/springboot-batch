@@ -20,4 +20,6 @@ public interface PackageRepository extends JpaRepository<PackageEntity, Integer>
         "p.period = :period " +
         "where p.packageSeq = :packageSeq")
     int updateCountAndPeriod(@Param("packageSeq") Integer packageSeq, @Param("count") Integer count, @Param("period") Integer period);
+
+    List<PackageEntity> findAllByOrderByPackageName();
 }
