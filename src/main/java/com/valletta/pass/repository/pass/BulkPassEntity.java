@@ -41,4 +41,11 @@ public class BulkPassEntity {
 
     @Column(name = "ended_at")
     private LocalDateTime endedAt;
+
+    public void setEndedAtFromPeriod(Integer period) {
+        if (period == null) {
+            return;
+        }
+        this.endedAt = this.startedAt.plusDays(period);
+    }
 }

@@ -1,10 +1,10 @@
 spring:
   datasource: # docker-compose에 정의했던 DB 접속 정보
-#    url: jdbc:h2:mem:mydb
+    #    url: jdbc:h2:mem:mydb
     url: jdbc:mysql://127.0.0.1:3306/pass_local?zeroDateTimeBehavior=convertToNull&characterEncoding=UTF-8&serverTimezone=Asia/Seoul
     username: pass_local_user
     password: passlocal123
-#    driver-class-name: org.h2.Driver
+    #    driver-class-name: org.h2.Driver
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       maximum-pool-size: 20 # pool에 보관 가능한 최대 connection 수
@@ -34,6 +34,7 @@ logging:
     org.hibernate.sql: debug
     org.hibernate.type.descriptor.sql: trace
     p6spy: debug
+    root: debug
 
 decorator:
   datasource:
