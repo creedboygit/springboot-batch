@@ -1,5 +1,6 @@
 package com.valletta.pass.controller.admin;
 
+import com.valletta.pass.service.pass.BulkPassService;
 import com.valletta.pass.service.statistics.StatisticsService;
 import com.valletta.pass.util.LocalDateTimeUtils;
 import java.time.LocalDateTime;
@@ -16,7 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping(value = "/admin")
 public class AdminViewController {
 
-//    private BulkPassService bulkPassService;
+    private BulkPassService bulkPassService;
 //    private PackageService packageService;
 //    private UserGroupMappingService userGroupMappingService;
     private final StatisticsService statisticsService;
@@ -28,5 +29,10 @@ public class AdminViewController {
         modelAndView.addObject("chartData", statisticsService.makeChartData(to));
         modelAndView.setViewName("admin/index");
         return modelAndView;
+    }
+
+    @GetMapping("/bulk-pass")
+    public ModelAndView registerBulkPass(ModelAndView modelAndView) {
+        modelAndView.addObject("bulkPasses", bulkPassService.getAllBulkPasses());
     }
 }
