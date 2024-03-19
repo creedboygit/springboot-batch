@@ -19,12 +19,20 @@ spring:
     hibernate:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-#        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        highlight_sql: true
+        use_sql_comments: true
+  #        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
   thymeleaf:
     cache: false
 
 logging:
   level:
+    org.hibernate.sql: debug
+    org.hibernate.type.descriptor.sql: trace
     p6spy: debug
 
 decorator:
