@@ -1,5 +1,6 @@
 package com.valletta.pass.service.packaze;
 
+import javax.persistence.Column;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -9,4 +10,6 @@ import lombok.ToString;
 @ToString
 public class Package {
 
+    private Integer packageSeq;
+    private String packageName;
 }
