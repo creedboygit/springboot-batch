@@ -18,9 +18,9 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping(value = "/admin")
 public class AdminViewController {
 
-    private BulkPassService bulkPassService;
-    private PackageService packageService;
-    private UserGroupMappingService userGroupMappingService;
+    private final BulkPassService bulkPassService;
+    private final PackageService packageService;
+    private final UserGroupMappingService userGroupMappingService;
     private final StatisticsService statisticsService;
 
     @GetMapping
