@@ -52,7 +52,7 @@ public class MakeDailyStatisticsTasklet implements Tasklet {
             });
         }
 
-        CustomCSVWriter.write("daily_statistics_" + LocalDateTimeUtils.format(from, LocalDateTimeUtils.YYYYM_MM_DD) + ".csv", data);
+        CustomCSVWriter.write("daily_statistics_" + LocalDateTimeUtils.format(from, LocalDateTimeUtils.YYYY_MM_DD) + ".csv", data);
         return RepeatStatus.FINISHED;
     }
 }

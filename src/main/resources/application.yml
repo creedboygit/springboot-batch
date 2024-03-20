@@ -34,9 +34,10 @@ spring:
 logging:
   level:
     org.hibernate.sql: debug
-    org.hibernate.type.descriptor.sql: trace
+    #    org.hibernate.type.descriptor.sql: trace
+    org.hibernate.type.descriptor.sql: debug
     p6spy: debug
-    root: debug
+    root: info
 
 decorator:
   datasource:
