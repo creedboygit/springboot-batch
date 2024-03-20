@@ -1,9 +1,7 @@
 package com.valletta.pass.service.pass;
 
 import com.valletta.pass.repository.pass.PassEntity;
-import com.valletta.pass.repository.pass.PassModelMapper;
 import com.valletta.pass.repository.pass.PassRepository;
-import com.valletta.pass.service.pass.Pass;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

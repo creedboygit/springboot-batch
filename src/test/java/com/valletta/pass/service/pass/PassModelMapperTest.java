@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.valletta.pass.repository.packaze.PackageEntity;
 import com.valletta.pass.repository.pass.PassEntity;
-import com.valletta.pass.repository.pass.PassModelMapper;
 import com.valletta.pass.repository.pass.PassStatus;
 import java.time.LocalDateTime;
 import java.util.List;

@@ -1,11 +1,9 @@
 package com.valletta.pass.repository.pass;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import com.valletta.pass.service.pass.PassModelMapper;
 import java.time.LocalDateTime;
-import org.assertj.core.api.Assertions.*;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class PassModelMapperTest {

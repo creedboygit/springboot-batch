@@ -1,6 +1,9 @@
-package com.valletta.pass.repository.pass;
+package com.valletta.pass.service.pass;
 
-import com.valletta.pass.service.pass.Pass;
+import com.valletta.pass.repository.pass.BulkPassEntity;
+import com.valletta.pass.repository.pass.BulkPassStatus;
+import com.valletta.pass.repository.pass.PassEntity;
+import com.valletta.pass.repository.pass.PassStatus;
 import java.util.List;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -15,7 +18,7 @@ public interface PassModelMapper {
     PassModelMapper INSTANCE = Mappers.getMapper(PassModelMapper.class);
 
     // 필드명이 같지 않거나 custom하게 매핑해주기 위해서는 @Mapping을 추가해주면 됩니다.
-    @Mapping(target= "status", qualifiedByName = "defaultStatus")
+    @Mapping(target = "status", qualifiedByName = "defaultStatus")
     @Mapping(target = "remainingCount", source = "bulkPassEntity.count")
     PassEntity toPassEntity(BulkPassEntity bulkPassEntity, String userId);
 
