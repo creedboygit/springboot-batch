@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserGroupMappingService {
 
-    final private UserGroupMappingRepository userGroupMappingRepository;
+    private final UserGroupMappingRepository userGroupMappingRepository;
 
     public List<String> getAllUserGroupIds() {
         return userGroupMappingRepository.findDistinctUserGroupIds();

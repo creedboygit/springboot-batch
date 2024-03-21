@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class PackageService {
 
-    final private PackageRepository packageRepository;
+    private final PackageRepository packageRepository;
 
     public List<Package> getAllPackage() {
         List<PackageEntity> bulkPassEntities = packageRepository.findAllByOrderByPackageName();
