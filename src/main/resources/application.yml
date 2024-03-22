@@ -1,3 +1,6 @@
+server:
+  port: 8080
+
 spring:
   datasource: # docker-compose에 정의했던 DB 접속 정보
     #    url: jdbc:h2:mem:mydb
@@ -33,9 +36,9 @@ spring:
 
 logging:
   level:
-    org.hibernate.sql: debug
-    #    org.hibernate.type.descriptor.sql: trace
-    org.hibernate.type.descriptor.sql: debug
+    org.hibernate.sql: trace
+    org.hibernate.type.descriptor.sql: trace
+    #    org.hibernate.type.descriptor.sql: debug
     p6spy: debug
     root: info
 

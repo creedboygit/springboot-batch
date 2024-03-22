@@ -12,13 +12,25 @@ spring:
     #    driver-class-name: org.h2.Driver
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
-    show-sql: true # znjflfmf vywns cnffurdmfh
+    show-sql: true # 쿼리를 표준 출력으로
     properties:
       hibernate:
         format_sql: true
   batch:
     jdbc:
       initialize-schema: always
+
 logging:
   level:
-    org.hibernate.type.descriptor.sql: trace # 바인딩되는 모든 파라미터를 출력
+    org.hibernate.sql: trace
+    org.hibernate.type.descriptor.sql: trace
+    #    org.hibernate.type.descriptor.sql: debug
+    p6spy: debug
+    root: info
+
+decorator:
+  datasource:
+    p6spy:
+      enable-logging: true
+      multiline: false
+      logging: slf4j
