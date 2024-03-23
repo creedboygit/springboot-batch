@@ -82,6 +82,9 @@ public class MakeStatisticsJobConfig {
         final LocalDateTime from = LocalDateTimeUtils.parse(fromString);
         final LocalDateTime to = LocalDateTimeUtils.parse(toString);
 
+        log.info("### from: {}", String.valueOf(from));
+        log.info("### to: {}", String.valueOf(to));
+
         return new JpaCursorItemReaderBuilder<BookingEntity>()
 //            .name("usePassesItemReader")
             .name("addStatisticsItemReader")

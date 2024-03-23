@@ -4,8 +4,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.ExitStatus;
 import org.springframework.batch.core.Job;
-import org.springframework.batch.core.JobParameters;
-import org.springframework.batch.core.JobParametersBuilder;
 import org.springframework.batch.core.configuration.JobRegistry;
 import org.springframework.batch.core.launch.JobLauncher;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,12 +25,12 @@ public class JobLauncherController {
 //    public String launchJob(@RequestBody JobLaunchRequest request) throws Exception {
 
         try {
-            JobParameters jobParameters = new JobParametersBuilder()
-                .addLong("time", System.currentTimeMillis())
-                .toJobParameters();
+//            JobParameters jobParameters = new JobParametersBuilder()
+//                .addLong("time", System.currentTimeMillis())
+//                .toJobParameters();
             Job job = jobRegistry.getJob(request.getName());
-//        return this.jobLauncher.run(job, request.getJobParameters()).getExitStatus();
-            return this.jobLauncher.run(job, jobParameters).getExitStatus();
+            return this.jobLauncher.run(job, request.getJobParameters()).getExitStatus();
+//            return this.jobLauncher.run(job, jobParameters).getExitStatus();
         } catch (Exception e) {
             log.info(e.getMessage());
         }
