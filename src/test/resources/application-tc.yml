@@ -13,8 +13,6 @@ spring:
     properties:
       hibernate:
         format_sql: false
-  #    database: mysql
-  #    database-platform: org.hibernate.dialect.MySQLInnoDBDialect
   batch:
     jdbc:
       initialize-schema: always
