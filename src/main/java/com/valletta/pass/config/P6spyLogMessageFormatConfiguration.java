@@ -1,7 +1,7 @@
 package com.valletta.pass.config;
 
 import com.p6spy.engine.spy.P6SpyOptions;
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration

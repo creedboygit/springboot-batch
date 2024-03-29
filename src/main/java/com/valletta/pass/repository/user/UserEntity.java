@@ -1,26 +1,24 @@
 package com.valletta.pass.repository.user;
 
 import com.valletta.pass.repository.BaseEntity;
-import com.vladmihalcea.hibernate.type.json.JsonStringType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import java.util.Map;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import org.hibernate.annotations.Type;
-import org.hibernate.annotations.TypeDef;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 @Getter
 @Setter
 @ToString
 @Entity
 @Table(name = "user")
-@TypeDef(name = "json", typeClass = JsonStringType.class) // json 타입 정의
 public class UserEntity extends BaseEntity {
 
     @Id
@@ -35,7 +33,8 @@ public class UserEntity extends BaseEntity {
 
     private String phone;
 
-    @Type(type = "json")
+    //    @Type(type = "json")
+    @JdbcTypeCode(SqlTypes.JSON)
     private Map<String, Object> meta;
 
     public String getUuid() {

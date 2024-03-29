@@ -1,6 +1,6 @@
 package com.valletta.pass.repository.booking;
 
-import javax.transaction.Transactional;
+import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
